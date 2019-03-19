@@ -32,6 +32,7 @@ extern uint8_t is_master;
 //KC_BSLS : ] and }
 #define JP_DQT  LSFT(KC_2) // "
 #define KC_ALPS LALT(KC_PSCR) // Alt + PrintScreen
+#define KC_CAD  LCTL(LALT(KC_DEL)) // Control+Alt+Delete
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -69,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,------------------------------------------.
  * | ESC  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * | Tab  |      |      |  ↑   |      |      |                    |      |  Ps  | AlPs |      |      | F12   |
+ * | Tab  |      |      |  ↑   |      |      |                    |      |  Ps  | AlPs |      |C+A+D | F12   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
  * |LCTRL |      |   ←  |  ↓ 　 |   →  |      |-------.    ,-------|      |  INS | Home | PgUp |      |       |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+-------|
@@ -81,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT( \
   KC_ESC , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,     KC_F11, \
-  _______, XXXXXXX, XXXXXXX,  KC_UP, XXXXXXX, XXXXXXX,                    XXXXXXX, KC_PSCR, KC_ALPS, XXXXXXX,  XXXXXXX,   KC_F12, \
+  _______, XXXXXXX, XXXXXXX,  KC_UP, XXXXXXX, XXXXXXX,                    XXXXXXX, KC_PSCR, KC_ALPS, XXXXXXX,   KC_CAD,   KC_F12, \
   _______, XXXXXXX, KC_LEFT, KC_DOWN,KC_RGHT, XXXXXXX,                    XXXXXXX,  KC_INS, KC_HOME, KC_PGUP,  XXXXXXX,  XXXXXXX, \
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX,  KC_DEL,  KC_END, KC_PGDN,  XXXXXXX,  _______, \
                              _______, _______, _______, _______, _______,  _______, _______, _______\
