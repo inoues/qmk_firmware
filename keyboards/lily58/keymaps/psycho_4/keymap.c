@@ -46,13 +46,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
  * ,-----------------------------------------.                    ,------------------------------------------.
- * |  E/J |  1!  |  2"  |  3#  |  4$  |  5%  |                    |  6&  |  7'  |  8(  |  9)  |   0  |  -=   |
+ * |  E/J |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -    |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  @ `  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |  ;+  |  : *  |
+ * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  : *  |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+-------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |  ,<  |  .>  |  /?  |¥ _ / S|
+ * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |¥ _ / S|
  * `-----------------------------------------/       /     \      \------------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP|  APP |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -68,13 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,------------------------------------------.
- * |  ESC |      |      |      |      |      |                    |   +  |   7  |   8  |   9  | ^, ~ |  \ |  |
+ * | ESC  |      |      |      |      |      |                    |      |      |      |      |      |       |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * |  Tab |      |      |      |      |      |                    |   -  |   4  |   5  |   6  |      |       |
+ * |  !   | "    |   #  |  $   |  %   |  &   |                    |   '  |   (  |   )  |   -  |  ^   |   \   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * |LCTRL |      |      |      |      |      |-------.    ,-------|   *  |   1  |   2  |   3  |      |       |
+ * |      |   1  |   2  |   3  |   4  |   5  |-------.    ,-------|      |   {  |   }  |   =  |   ~  |   |   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+-------|
- * |LShift|      |      |M_LBTN|M_RBTN|      |-------|    |-------|   /  |   .  |   0  |   =  |      |¥ _ / S|
+ * |LShift|   6  |   7  |   8  |   9  |   0  |-------|    |-------|      |   [  |   ]  |      |      |\ _ / S|
  * `-----------------------------------------/       /     \      \------------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP|  APP |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -83,30 +83,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LOWER] = LAYOUT( \
   KC_ESC , _______, _______, _______, _______, _______,                      KC_PPLS, KC_7,      KC_8,     KC_9,  KC_EQL,    KC_JYEN, \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PMNS, KC_4,      KC_5,     KC_6, XXXXXXX,    _______, \
+  KC_EXLM, sdfad, KC_HASH, KC_DLR, KC_PERC, KC_AMPR,                      KC_PMNS, KC_4,      KC_5,     KC_6, XXXXXXX,    _______, \
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PAST, KC_1,      KC_2,     KC_3, XXXXXXX,    XXXXXXX, \
-  _______, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, XXXXXXX,   _______, _______,  KC_PSLS, KC_PDOT,   KC_0,  KC_PEQL, XXXXXXX,    _______, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   _______, _______,  KC_PSLS, KC_RBRC,  KC_BSLS,  KC_PEQL, XXXXXXX,    _______, \
                              _______, _______, _______,  _______, _______,  _______, _______, _______ \
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,------------------------------------------.
- * | ESC  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11   |
+ * | ESC  |      |      |      |      |      |                    |      |      |      |      |      |       |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * | Tab  |      |      |  ↑   |      |      |                    |      |  Ps  | AlPs |      |C+A+D | F12   |
+ * | Tab  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+-------|
- * |LCTRL |      |   ←  |  ↓   |   →  |      |-------.    ,-------|      |  INS | Home | PgUp |      |       |
+ * |LCTRL |   ←  |   ↑  |  ↓   |   →  |      |-------.    ,-------| CAD  |  INS | Home | PgUp | Ps   | F12   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+-------|
- * |LShift|      |      |      |      |      |-------|    |-------|      |  DEL |  END | PgDn |      |¥ _ / S|
+ * |LShift|  E/J | ESC  |M_LBTN|M_RBTN|      |-------|    |-------| ESC  |  DEL |  END | PgDn | AlPs |¥ _ / S|
  * `-----------------------------------------/       /     \      \------------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP|  APP |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_RAISE] = LAYOUT( \
-  KC_ESC , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,     KC_F11, \
-  _______, XXXXXXX, XXXXXXX,  KC_UP, XXXXXXX, XXXXXXX,                    XXXXXXX, KC_PSCR, KC_ALPS, XXXXXXX,   KC_CAD,   KC_F12, \
-  _______, XXXXXXX, KC_LEFT, KC_DOWN,KC_RGHT, XXXXXXX,                    XXXXXXX,  KC_INS, KC_HOME, KC_PGUP,  XXXXXXX,  XXXXXXX, \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX,  KC_DEL,  KC_END, KC_PGDN,  XXXXXXX,  _______, \
+  KC_ESC ,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+  _______,   KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5,                    KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11, \
+  _______, KC_LEFT,   KC_UP, KC_DOWN,KC_RGHT, XXXXXXX,                    KC_CAD,  KC_INS, KC_HOME, KC_PGUP, KC_PSCR,  KC_F12, \
+  _______, KC_GRV,   KC_ESC, KC_BTN1, KC_BTN2, XXXXXXX, _______, _______, KC_ESC,  KC_DEL,  KC_END, KC_PGDN, KC_ALPS, _______, \
                              _______, _______, _______, _______, _______,  _______, _______, _______\
 ),
 /* ADJUST
