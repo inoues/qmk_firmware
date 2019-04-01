@@ -1,5 +1,6 @@
 /*
-Copyright 2017 Danny Nguyen <danny@keeb.io>
+Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,24 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-/* Use I2C or Serial, not both */
+#include "config_common.h"
+#include <serial_config.h>
 
+#define USE_I2C
 #define USE_SERIAL
-// #define USE_I2C
 
-/* Select hand configuration */
-#define PERMISSIVE_HOLD
-#define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
-/*
-#undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
-*/
-#define TAPPING_TERM 200
-
-
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
