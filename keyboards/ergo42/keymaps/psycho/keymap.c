@@ -39,7 +39,6 @@ enum {
 #define KC_CPUP LCTL(KC_PGUP)      // ctl + pgup
 #define KC_ALUP LALT(KC_UP)        // alt + up
 
-#define KC_TBZH LT(KC_TAB, JP_ZHTG)    // タップで全角半角     ホールドでTAB
 
 #define KC_LOWR LT(_LOWER, KC_MHEN)    // タップで無変換     ホールドでLower
 #define KC_RASE LT(_RAISE, KC_HENK)    // タップで変換       ホールドでRaise
@@ -49,20 +48,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* WIN
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |TB/ZH |   Q  |   W  |   E  |   R  |   T  | XXXX |   | XXXX |   Y  |   U  |   I  |   O  |   P  |  -=  |
+   * |  Tab |   Q  |   W  |   E  |   R  |   T  | XXXX |   | XXXX |   Y  |   U  |   I  |   O  |   P  |  -=  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * | LCTRL|   A  |   S  |   D  |   F  |   G  | XXXX |   | XXXX |   H  |   J  |   K  |   L  |  ; + |  : * |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |LShift|   Z  |   X  |   C  |   V  |   B  |   [  |   |   ]  |   N  |   M  |  , < |  . > |  / ? |Shift |
+   * |LShift|   Z  |   X  |   C  |   V  |   B  | XXXX |   | XXXX |   N  |   M  |  , < |  . > |  / ? |Shift |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |  Fn  | XXXX | XXXX |  Win | LOWER|Space | XXXX |   | XXXX |Enter |RAISE |  Alt | XXXX | XXXX | XXXX |
+   * |  Fn  | XXXX | XXXX |  Win | LOWER|Space |Space |   | Enter|Enter |RAISE |  Alt | XXXX | XXXX | XXXX |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [_WIN] = LAYOUT( \
-    KC_TBZH, KC_Q,    KC_W,    KC_E,      KC_R,    KC_T,  XXXXXXX,       XXXXXXX,    KC_Y,    KC_U,     KC_I,     KC_O,     KC_P, KC_MINS, \
+     KC_TAB, KC_Q,    KC_W,    KC_E,      KC_R,    KC_T,  XXXXXXX,       XXXXXXX,    KC_Y,    KC_U,     KC_I,     KC_O,     KC_P, KC_MINS, \
     KC_RCTL, KC_A,    KC_S,    KC_D,      KC_F,    KC_G,  XXXXXXX,       XXXXXXX,    KC_H,    KC_J,     KC_K,     KC_L,  KC_SCLN, JP_COLN, \
-    KC_LSFT, KC_Z,    KC_X,    KC_C,      KC_V,    KC_B,  JP_LBRC,       JP_RBRC,    KC_N,    KC_M,  KC_COMM,   KC_DOT,  KC_SLSH, KC_RSFT, \
-    FN     , XXXXXXX, XXXXXXX, KC_LGUI,KC_LOWR,  KC_SPC,  XXXXXXX,       XXXXXXX,  KC_ENT, KC_RASE,  KC_LALT,  XXXXXXX,  XXXXXXX, XXXXXXX  \
+    KC_LSFT, KC_Z,    KC_X,    KC_C,      KC_V,    KC_B,  XXXXXXX,       XXXXXXX,    KC_N,    KC_M,  KC_COMM,   KC_DOT,  KC_SLSH, KC_RSFT, \
+    FN     , XXXXXXX, XXXXXXX, KC_LGUI,KC_LOWR,  KC_SPC,   KC_SPC,        KC_ENT,  KC_ENT, KC_RASE,  KC_LALT,  XXXXXXX,  XXXXXXX, XXXXXXX  \
   ),
 
   /* LOWER
@@ -85,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* RAISE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |  Esc |   !  |   "  |   #  |   $  |   %  |      |   |      |   &  |   '  |   (  |   )  |  ^   |  ~   |
+   * |  E/J |   !  |   "  |   #  |   $  |   %  |      |   |      |   &  |   '  |   (  |   )  |  ^   |  ~   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |  Tab | C+A+D| XXXX |  WL  |  WR  |   [  |      |   |      |   ]  | INS  | PgUp | AlPs |   @  |  `   |
+   * |  Esc | C+A+D| XXXX |  WL  |  WR  |   [  |      |   |      |   ]  | INS  | PgUp | AlPs |   @  |  `   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      | XXXX | AL+UP|CPgUp | CPgDn| Home |      |   |      |  END | DEL  | PgDn |  Ps  | XXXX |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
@@ -95,10 +94,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-     KC_ESC, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), _______,      _______, S(KC_6), S(KC_7), S(KC_8), S(KC_9), JP_CIRC, JP_TILD, \
+    JP_ZHTG, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), _______,      _______, S(KC_6), S(KC_7), S(KC_8), S(KC_9), JP_CIRC, JP_TILD, \
      KC_TAB,  KC_CAD, XXXXXXX, KC_WINL, KC_WINR, JP_LBRC, _______,      _______, JP_RBRC,  KC_INS, KC_PGUP, KC_ALPS,   JP_AT,  JP_GRV, \
     _______, XXXXXXX, KC_ALUP, KC_CPUP, KC_CPDN, KC_HOME, _______,      _______, KC_END,   KC_DEL, KC_PGDN, KC_PSCR, XXXXXXX, _______, \
-    _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______  \
+    _______, _______, _______, _______, _______, KC_BSPC, KC_BSPC,      _______, _______, _______, _______, _______, _______, _______  \
   ),
 
   /* FUNC
@@ -116,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
     _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
     KC_CAPS, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
-    _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______  \
   )
 };
 
