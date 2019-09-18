@@ -45,9 +45,15 @@ enum macro_keycodes {
 #define KC_CPUP LCTL(KC_PGUP)      // ctl + pgup
 #define KC_ALUP LALT(KC_UP)        // alt + up
 
+// JP_MHEN KC_INT5 // muhenkan
+// JP_HENK KC_INT4 // henkan
+// JP_KANA KC_INT2 // katakana/hiragana|ro-mazi
 
-#define KC_LOWR LT(LOWER, KC_MHEN)    // タップで無変換     ホールドでLower
-#define KC_RASE LT(RAISE, KC_HENK)    // タップで変換       ホールドでRaise
+// JP_MKANA KC_LANG1 //kana on MacOSX
+// JP_MEISU KC_LANG2 //eisu on MacOSX
+
+#define KC_LOWR LT(LOWER, JP_MHEN)    // タップで無変換     ホールドでLower
+#define KC_RASE LT(RAISE, JP_HENK)    // タップで変換       ホールドでRaise
 
 #define KC_TBSF  LSFT_T(KC_TAB)
 // #define KC_SPSF  LSFT_T(KC_SPC)
@@ -81,15 +87,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|              |------+------+------+------+------+------|
    * |  Tab |  F1  |  F2  |  F3  |  F4  |  F5  |              | Left | Down |  Up  |Right | XXXX |  |   |
    * |------+------+------+------+------+------|              |------+------+------+------+------+------|
-   * |      |  F6  |  F7  |  F8  |  F9  | F10  |              |  F11 |  F12 | XXXX | XXXX | XXXX |  _   |
+   * |      |  F6  |  F7  |  F8  |  F9  | F10  |              |  F11 |  F12 | XXXX | XXXX |  \   |  _   |
    * `------+------+------+------+------+------|              |------+------+------+------+------+------'
    *                      |  Win | LOWER|Space |              |Enter |RAISE |  Alt |
    *                      `--------------------'              `--------------------'
    */
    [_LOWER] = LAYOUT( \
-    KC_ESC,      KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,      KC_7,    KC_8,     KC_9,    KC_0, KC_JYEN,\
+    KC_ESC,      KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,      KC_7,    KC_8,     KC_9,    KC_0,  JP_YEN,\
     KC______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_LEFT,   KC_DOWN,   KC_UP,  KC_RGHT, XXXXXXX, JP_PIPE,\
-    KC______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      KC_F11,    KC_F12, XXXXXXX,  XXXXXXX, XXXXXXX, JP_UNDS, \
+    KC______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      KC_F11,    KC_F12, XXXXXXX,  XXXXXXX, JP_BSLS, JP_UNDS, \
                                KC______,KC______, KC_BSPC,    KC______,  KC______,KC______ \
   ),
  /*
@@ -104,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                      `--------------------'              `--------------------'
    */
   [_RAISE] = LAYOUT( \
-     JP_ZHTG, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),      S(KC_6),  S(KC_7),  S(KC_8), S(KC_9), JP_CIRC,  JP_TILD,\
+     JP_ZHTG, KC_EXLM,  JP_DQT, KC_HASH,  KC_DLR, KC_PERC,      JP_AMPR,  JP_QUOT,  JP_LPRN, JP_RPRN, JP_CIRC,  JP_TILD,\
     KC______,  KC_CAD,  KC_CAI, XXXXXXX, KC_CPUP, JP_LBRC,      JP_RBRC,   KC_INS,  KC_HOME, KC_PGUP,   JP_AT,   JP_GRV,\
-    KC______, KC_ALUP, XXXXXXX, XXXXXXX, KC_CPDN, S(JP_LBRC),  S(JP_RBRC),   KC_DEL,   KC_END, KC_PGDN, KC_PSCR,  KC_ALPS,\
+    KC______, KC_ALUP, XXXXXXX, XXXXXXX, KC_CPDN, JP_LCBR,      JP_RCBR,   KC_DEL,   KC_END, KC_PGDN, KC_PSCR,  KC_ALPS,\
                                KC______,KC______, KC_BSPC,     KC______, KC______,  KC______ \
   ),
 
