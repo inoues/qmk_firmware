@@ -33,6 +33,7 @@ enum {
 
 #define KC_ALPS LALT(KC_PSCR)      // Alt + PrintScreen
 #define KC_CAD  LCTL(LALT(KC_DEL)) // Control+Alt+Delete
+#define KC_CAI  LCTL(LALT(KC_INS)) // Control+Alt+Insert
 #define KC_WINL LGUI(KC_LEFT)      // Win + left
 #define KC_WINR LGUI(KC_RIGHT)     // Win + right
 #define KC_CPDN LCTL(KC_PGDN)      // ctl + pgdown
@@ -70,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |  Tab |  F1  |  F2  |  F3  |  F4  |  F5  |      |   |      | Left | Down |  Up  |Right | XXXX |  |   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |  F6  |  F7  |  F8  |  F9  | F10  |      |   |      |  F11 |  F12 | XXXX | XXXX | XXXX |  _   |
+   * |      |  F6  |  F7  |  F8  |  F9  | F10  |      |   |      |  F11 |  F12 | XXXX | XXXX |   \  |  _   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
@@ -78,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LOWER] = LAYOUT( \
      KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5, _______,      _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_JYEN, \
      KC_TAB,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, _______,      _______, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, JP_PIPE, \
-    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, _______,      _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX, JP_UNDS, \
+    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, _______,      _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, JP_BSLS, JP_UNDS, \
     _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______  \
   ),
 
@@ -86,17 +87,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * |  E/J |   !  |   "  |   #  |   $  |   %  |      |   |      |   &  |   '  |   (  |   )  |  ^   |  ~   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |  Esc | C+A+D| XXXX |  WL  |  WR  |  [{  |      |   |      |  ]}  | INS  | PgUp | AlPs |   @  |  `   |
+   * |  Esc | C+A+D|KC_CAI|      | CPgUp|  [   |      |   |      |  ]   | INS  | Home | PgUp |   @  |  `   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | XXXX | AL+UP|CPgUp | CPgDn| Home |      |   |      |  END | DEL  | PgDn |  Ps  | XXXX |      |
+   * |      | AL+UP| AL+UP|      | CPgDn|  {   |      |   |      |  }   | DEL  | END  | PgDn |  Ps  | AlPs |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |      |      |      |      | Bksp | Bksp |   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-    JP_ZHTG, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), _______,      _______, S(KC_6), S(KC_7), S(KC_8), S(KC_9), JP_CIRC, JP_TILD, \
-     KC_TAB,  KC_CAD, XXXXXXX, KC_WINL, KC_WINR, JP_LBRC, _______,      _______, JP_RBRC,  KC_INS, KC_PGUP, KC_ALPS,   JP_AT,  JP_GRV, \
-    _______, XXXXXXX, KC_ALUP, KC_CPUP, KC_CPDN, KC_HOME, _______,      _______, KC_END,   KC_DEL, KC_PGDN, KC_PSCR, XXXXXXX, _______, \
+    JP_ZHTG, KC_EXLM,  JP_DQT, KC_HASH,  KC_DLR, KC_PERC, _______,      _______, JP_AMPR, JP_QUOT, JP_LPRN, JP_RPRN, JP_CIRC, JP_TILD, \
+     KC_TAB,  KC_CAD,  KC_CAI, XXXXXXX, KC_CPUP, JP_LBRC, _______,      _______, JP_RBRC,  KC_INS, KC_HOME, KC_PGUP,   JP_AT,  JP_GRV, \
+    _______, KC_ALUP, XXXXXXX, XXXXXXX, KC_CPDN, JP_LCBR, _______,      _______, JP_RCBR,  KC_DEL,  KC_END, KC_PGDN, KC_PSCR, KC_ALPS, \
     _______, _______, _______, _______, _______, KC_BSPC, KC_BSPC,      _______, _______, _______, _______, _______, _______, _______  \
   ),
 

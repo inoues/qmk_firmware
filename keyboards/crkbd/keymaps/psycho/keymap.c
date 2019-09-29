@@ -98,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      KC_F11,    KC_F12, XXXXXXX,  XXXXXXX, JP_BSLS, JP_UNDS, \
                                KC______,KC______, KC_BSPC,    KC______,  KC______,KC______ \
   ),
- /*
+  /*
    * ,------------------------------------------              ,-----------------------------------------.
    * |  E/J |   !  |   "  |   #  |   $  |   %  |              |   &  |   '  |   (  |   )  |  ^   |  ~   |
    * |------+------+------+------+------+------|              |------+------+------+------+------+------|
-   * |  Esc | XXXX | XXXX | XXXX | CPgUp|  [   |              |   ]  | INS  | Home | PgUp |   @  |  `   |
+   * |  Esc |KC_CAD|KC_CAI| XXXX | CPgUp|  [   |              |   ]  | INS  | Home | PgUp |   @  |  `   |
    * |------+------+------+------+------+------|              |------+------+------+------+------+------|
    * |      | AL+UP| XXXX | XXXX | CPgDn|  {   |              |   }  | DEL  | END  | PgDn |  Ps  | AlPs |
    * `------+------+------+------+------+------|              |------+------+------+------+------+------'
@@ -115,17 +115,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC______, KC_ALUP, XXXXXXX, XXXXXXX, KC_CPDN, JP_LCBR,      JP_RCBR,   KC_DEL,   KC_END, KC_PGDN, KC_PSCR,  KC_ALPS,\
                                KC______,KC______, KC_BSPC,     KC______, KC______,  KC______ \
   ),
-
+  /*
+   * ,----------------------------------------------              ,-----------------------------------------.
+   * | RESET |RGBRST |       |       |      |      |              |      |      |      |      |      |      |
+   * |-------+-------+-------+-------+------+------|              |------+------+------+------+------+------|
+   * |RGB_TOG|RGB_HUI|RGB_SAI|RGB_VAI|      |      |              |      |      |      |      |      |      |
+   * |-------+-------+-------+-------+------+------|              |------+------+------+------+------+------|
+   * |RGB_MOD|RGB_HUD|RGB_SAD|RGB_VAD|      |      |              |      |      |      |      |      |      |
+   * `-------+-------+-------+-------+------+------|              |------+------+------+------+------+------'
+   *                          |  Win | LOWER| Bksp |              |Enter |RAISE |  Alt |
+   *                          `--------------------'              `--------------------'
+   */
   [_ADJUST] = LAYOUT( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,RGBRST, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,                  KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-    RGB_TOG,RGB_HUI,RGB_SAI,RGB_VAI,KC_XXXXX,KC_XXXXX,                 KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-    RGB_MOD,RGB_HUD,RGB_SAD,RGB_VAD,KC_XXXXX,KC_XXXXX,                 KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                KC_LGUI, LOWER,KC_SPC,   KC_ENT, RAISE,KC_RALT \
-                              //`--------------------'  `--------------------'
+      RESET,  RGBRST, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,      KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
+    RGB_TOG, RGB_HUI,  RGB_SAI,  RGB_VAI, KC_XXXXX, KC_XXXXX,      KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
+    RGB_MOD, RGB_HUD,  RGB_SAD,  RGB_VAD, KC_XXXXX, KC_XXXXX,      KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX,\
+                                 KC_LGUI,    LOWER,   KC_SPC,        KC_ENT,    RAISE, KC_RALT \
   )
 };
 
