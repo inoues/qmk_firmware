@@ -25,5 +25,15 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
-#define LAYOUT(k00, k01, k02, k10, k11) \
-    { {k00, k01, k02}, {k10, KC_NO, k11}, }
+#define LAYOUT(\
+    k00, k10, k20, k30, k40, k50,      k70, k80, k90, k100, k110, k120,\
+    k01, k11, k21, k31, k41, k51, k61, k71, k81, k91, k101, k111, k121,\
+    k02, k12, k22, k32, k42, k52, k62, k72, k82, k92, k102, k112, k122,\
+                   k33, k43, k53,      k73, k83, k93\
+) { \
+    {k00,   k10,   k20,   k30,   k40,   k50, KC_NO, k70,   k80,   k90, k100,   k110,   k120}\
+    {k01,   k11,   k21,   k31,   k41,   k51, k61,   k71,   k81,   k91, k101,   k111,   k121}\
+    {k02,   k12,   k22,   k32,   k42,   k52, k62,   k72,   k82,   k92, k102,   k112,   k122}\
+    {KC_NO, KC_NO, KC_NO, k33,   k43,   k53, KC_NO, k73,   k83,   k93, KC_NO, KC_NO,  KC_NO}\
+}
+
